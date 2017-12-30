@@ -14,6 +14,10 @@ public class Utils {
 		try {
 	        Process p1 = Runtime.getRuntime().exec("adb shell screencap -p /sdcard/jump.png");
 	        p1.waitFor();
+		File localFile = new File("D:\\jump.png");
+	        if (!localFile.exists()) {
+	        	localFile.createNewFile();
+		}
 	        Process p2 = Runtime.getRuntime().exec("adb pull /sdcard/jump.png D:\\jump.png");
 	        p2.waitFor();
 	    } catch (Exception e) {
